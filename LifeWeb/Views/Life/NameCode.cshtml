@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewData["Title"] = "NameCode";
+    Layout = "~/Views/_LifeWeb_Layout.cshtml";
+}
+
+<h2></h2>
+
+<div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">生命大百科</h1>
+            <p class="lead text-center"></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg">
+                <form method="get" action="~/Life/Index">
+                    <div class="input-group mb-3">
+                        <input class="form-control" id="cName" name="cName" type="text" value="@ViewBag.cName" autofocus placeholder="請輸入物種中文名稱..." />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
+                        @ViewBag.taxonomyC.ScientificName
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">科學分類</h5>
+                        <p class="card-text">@ViewBag.taxonomyC.Kingdom</p>
+                        <p class="card-text">@ViewBag.taxonomyC.Phylum</p>
+                        <p class="card-text">@ViewBag.taxonomyC.Cclass</p>
+                        <p class="card-text">@ViewBag.taxonomyC.Order</p>
+                        <p class="card-text">@ViewBag.taxonomyC.Family</p>
+                        <p class="card-text">@ViewBag.taxonomyC.Genus</p>
+                        <p class="card-text">@ViewBag.taxonomyC.ScientificName</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
+                        @ViewBag.taxonomy.ScientificName
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Taxonomy</h5>
+                        <p class="card-text">@ViewBag.taxonomy.Kingdom</p>
+                        <p class="card-text">@ViewBag.taxonomy.Phylum</p>
+                        <p class="card-text">@ViewBag.taxonomy.Cclass</p>
+                        <p class="card-text">@ViewBag.taxonomy.Order</p>
+                        <p class="card-text">@ViewBag.taxonomy.Family</p>
+                        <p class="card-text">@ViewBag.taxonomy.Genus</p>
+                        <p class="card-text">@ViewBag.taxonomy.ScientificName</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        簡介
+                    </div>
+                    <div class="card-body">
+
+                        <p class="card-text">@ViewBag.taxonomyC.Description</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <hr />
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        習性
+                    </div>
+                    <div class="card-body">
+
+                        <p class="card-text">@ViewBag.taxonomyC.Habitat</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @{ string active = "active";
+                                    int i = 1;
+                                }
+                                @foreach (string item in ViewBag.picUrls) {
+                                    if (i != 1) { active = ""; }
+                                    <div class="carousel-item @active">
+                                        <img class="d-block w-100" src="@item">
+                                    </div>
+                                    i++;
+                                }
+
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

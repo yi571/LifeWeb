@@ -1,0 +1,76 @@
+﻿@using Newtonsoft.Json.Linq;
+@using Newtonsoft.Json;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <title>生命大百科</title>
+</head>
+<body>
+    <h1></h1>
+    <div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 text-center">生命大百科</h1>
+                <p class="lead text-center"></p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row"></div>
+
+            <div class="row">
+
+                <div class="col-lg">
+                    <form method="get">
+                        <div class="input-group mb-3">
+                            <input class="form-control" id="cName" name="cName" type="text" value="@ViewBag.cName" autofocus placeholder="請輸入物種中文名稱..." />
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="row">
+                @{ var counter = 1; }
+                @if (ViewBag.jDatas != null) {
+                @foreach (LifeWeb.Models.CJData item in ViewBag.jDatas) {
+                <div class="col-sm-4">
+
+                    <div class="card">
+                        <h5 class="card-header">學名：@item.name</h5>
+                        <div class="card-body">
+                            <p class="card-text">物種編號：<a href="~/Life/NameCode/?nCode=@item.nameCode">@item.nameCode</a></p>
+                            <p class="card-text">中文名稱：@item.cName </p>
+                        </div>
+                    </div>
+                </div>
+            if (counter % 3 == 0) {
+                @:</div><br /><div class="row">
+            counter = 0;
+        }
+        counter++;
+    };
+
+        }
+                <h2>@ViewBag.noData</h2>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
