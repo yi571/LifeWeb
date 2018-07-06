@@ -7,12 +7,7 @@
 <h2></h2>
 
 <div>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4 text-center">生命大百科</h1>
-            <p class="lead text-center"></p>
-        </div>
-    </div>
+
     <div class="container">
         <div class="row">
 
@@ -28,70 +23,70 @@
             </div>
         </div>
         <div class="row">
-
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-header">
-                        @ViewBag.taxonomyC.ScientificName
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">科學分類</h5>
-                        <p class="card-text">@ViewBag.taxonomyC.Kingdom</p>
-                        <p class="card-text">@ViewBag.taxonomyC.Phylum</p>
-                        <p class="card-text">@ViewBag.taxonomyC.Cclass</p>
-                        <p class="card-text">@ViewBag.taxonomyC.Order</p>
-                        <p class="card-text">@ViewBag.taxonomyC.Family</p>
-                        <p class="card-text">@ViewBag.taxonomyC.Genus</p>
-                        <p class="card-text">@ViewBag.taxonomyC.ScientificName</p>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-header">
-                        @ViewBag.taxonomy.ScientificName
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Taxonomy</h5>
-                        <p class="card-text">@ViewBag.taxonomy.Kingdom</p>
-                        <p class="card-text">@ViewBag.taxonomy.Phylum</p>
-                        <p class="card-text">@ViewBag.taxonomy.Cclass</p>
-                        <p class="card-text">@ViewBag.taxonomy.Order</p>
-                        <p class="card-text">@ViewBag.taxonomy.Family</p>
-                        <p class="card-text">@ViewBag.taxonomy.Genus</p>
-                        <p class="card-text">@ViewBag.taxonomy.ScientificName</p>
-                    </div>
-                </div>
-            </div>
             <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">
-                        簡介
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                @ViewBag.taxonomyC.ScientificName
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">科學分類</h5>
+                                <p class="card-text">@ViewBag.taxonomyC.Kingdom</p>
+                                <p class="card-text">@ViewBag.taxonomyC.Phylum</p>
+                                <p class="card-text">@ViewBag.taxonomyC.Cclass</p>
+                                <p class="card-text">@ViewBag.taxonomyC.Order</p>
+                                <p class="card-text">@ViewBag.taxonomyC.Family</p>
+                                <p class="card-text">@ViewBag.taxonomyC.Genus</p>
+                                <p class="card-text">@ViewBag.taxonomyC.ScientificName</p>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-
-                        <p class="card-text">@ViewBag.taxonomyC.Description</p>
-
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                @ViewBag.taxonomy.ScientificName
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Taxonomy</h5>
+                                <p class="card-text">@ViewBag.taxonomy.Kingdom</p>
+                                <p class="card-text">@ViewBag.taxonomy.Phylum</p>
+                                <p class="card-text">@ViewBag.taxonomy.Cclass</p>
+                                <p class="card-text">@ViewBag.taxonomy.Order</p>
+                                <p class="card-text">@ViewBag.taxonomy.Family</p>
+                                <p class="card-text">@ViewBag.taxonomy.Genus</p>
+                                <p class="card-text">@ViewBag.taxonomy.ScientificName</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <hr />
+                <div class="row">
 
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                簡介
+                            </div>
+                            <div class="card-body">
 
-        </div>
-        <hr />
-        <div class="row">
+                                <p class="card-text">@ViewBag.taxonomyC.Description</p>
 
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">
-                        習性
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                習性
+                            </div>
+                            <div class="card-body">
 
-                        <p class="card-text">@ViewBag.taxonomyC.Habitat</p>
+                                <p class="card-text">@ViewBag.taxonomyC.Habitat</p>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,5 +122,6 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
