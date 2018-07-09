@@ -103,11 +103,16 @@
                                 @{ string active = "active";
                                     int i = 1;
                                 }
-                                @foreach (string item in ViewBag.picUrls) {
+                                @foreach (CImage item in ViewBag.picUrls) {
                                     if (i != 1) { active = ""; }
-                                    <div class="carousel-item @active">
-                                        <img class="d-block w-100" src="@item">
+                                <div class="carousel-item @active">
+                                    <img class="d-block w-100" src="@item.ImgUrl">
+                                    <div class="card-footer text-muted text-center">
+                                        
+                                        提供者：@item.Author <br />來源：@item.Provider<br />
+                                        <i class="far fa-closed-captioning"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i>
                                     </div>
+                                </div>
                                     i++;
                                 }
 

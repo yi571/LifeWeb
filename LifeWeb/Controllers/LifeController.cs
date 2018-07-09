@@ -89,7 +89,9 @@ namespace LifeWeb.Controllers {
             if (objJsonTxt2.SelectToken("species_eol_info[0].description") != null && objJsonTxt2.SelectToken("species_eol_info[0].habitat") != null) {
                 CTaxonomy info = new CTaxonomy() {
                     Description = objJsonTxt2.SelectToken("species_eol_info[0].description").Value<string>(),
-                    Habitat = objJsonTxt2.SelectToken("species_eol_info[0].habitat").Value<string>()
+                    Habitat = objJsonTxt2.SelectToken("species_eol_info[0].habitat").Value<string>(),
+                    Author = objJsonTxt2.SelectToken("author").Value<string>(),
+                    Distribution = objJsonTxt2.SelectToken("distribution").Value<string>()
                 };
                 ViewBag.info = info;
             } else {
@@ -101,12 +103,18 @@ namespace LifeWeb.Controllers {
             }
             
             
-            List<string> picUrls = new List<string>();
+            List<CImage> picUrls = new List<CImage>();
             //物種圖片
             JToken objWantPic = objJsonTxt2.SelectToken("img_info");
             foreach (JToken pictures in objWantPic) {
-                string picUrl = pictures.SelectToken("image_big").Value<string>();
-                picUrls.Add(picUrl);
+                var imgData = new CImage() {
+                    ImgUrl = pictures.SelectToken("image_big").Value<string>(),
+                    Author = pictures.SelectToken("author").Value<string>(),
+                    License = pictures.SelectToken("license").Value<string>(),
+                    Provider = pictures.SelectToken("provider").Value<string>()
+            };
+                
+                picUrls.Add(imgData);
             }
             ViewBag.picUrls = picUrls;
             //return Content(nCode);
