@@ -90,8 +90,8 @@ namespace LifeWeb.Controllers {
                 CTaxonomy info = new CTaxonomy() {
                     Description = objJsonTxt2.SelectToken("species_eol_info[0].description").Value<string>(),
                     Habitat = objJsonTxt2.SelectToken("species_eol_info[0].habitat").Value<string>(),
-                    Author = objJsonTxt2.SelectToken("author").Value<string>(),
-                    Distribution = objJsonTxt2.SelectToken("distribution").Value<string>()
+                    Author = objJsonTxt2.SelectToken("species_eol_info[0].author").Value<string>(),
+                    Distribution = objJsonTxt2.SelectToken("species_eol_info[0].distribution").Value<string>()
                 };
                 ViewBag.info = info;
             } else {
