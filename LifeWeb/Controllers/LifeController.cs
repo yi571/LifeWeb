@@ -67,8 +67,8 @@ namespace LifeWeb.Controllers {
                 Family = objJsonTxt2.SelectToken("family_c").Value<string>(),
                 Genus = objJsonTxt2.SelectToken("genus_c").Value<string>(),
                 ScientificName = objJsonTxt2.SelectToken("ScientificName_c").Value<string>(),
-                Description = objJsonTxt2.SelectToken("species_eol_info[0].description").Value<string>(),
-                Habitat = objJsonTxt2.SelectToken("species_eol_info[0].habitat").Value<string>()
+                //Description = objJsonTxt2.SelectToken("species_eol_info[0].description").Value<string>(),
+                //Habitat = objJsonTxt2.SelectToken("species_eol_info[0].habitat").Value<string>()
             };
             ViewBag.taxonomyC = taxonomyC;
 
@@ -85,6 +85,22 @@ namespace LifeWeb.Controllers {
             };
             ViewBag.taxonomy = taxonomy;
 
+            //簡介
+            if (objJsonTxt2.SelectToken("species_eol_info[0].description") != null && objJsonTxt2.SelectToken("species_eol_info[0].habitat") != null) {
+                CTaxonomy info = new CTaxonomy() {
+                    Description = objJsonTxt2.SelectToken("species_eol_info[0].description").Value<string>(),
+                    Habitat = objJsonTxt2.SelectToken("species_eol_info[0].habitat").Value<string>()
+                };
+                ViewBag.info = info;
+            } else {
+                CTaxonomy info = new CTaxonomy() {
+                    Description = "無相關資料",
+                    Habitat = "無相關資料"
+                };
+                ViewBag.info = info;
+            }
+            
+            
             List<string> picUrls = new List<string>();
             //物種圖片
             JToken objWantPic = objJsonTxt2.SelectToken("img_info");
