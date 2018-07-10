@@ -91,13 +91,17 @@ namespace LifeWeb.Controllers {
                     Description = objJsonTxt2.SelectToken("species_eol_info[0].description").Value<string>(),
                     Habitat = objJsonTxt2.SelectToken("species_eol_info[0].habitat").Value<string>(),
                     Author = objJsonTxt2.SelectToken("species_eol_info[0].author").Value<string>(),
-                    Distribution = objJsonTxt2.SelectToken("species_eol_info[0].distribution").Value<string>()
+                    Distribution = objJsonTxt2.SelectToken("species_eol_info[0].distribution").Value<string>(),
+                    Provider = objJsonTxt2.SelectToken("species_eol_info[0].provider").Value<string>()
                 };
                 ViewBag.info = info;
             } else {
                 CTaxonomy info = new CTaxonomy() {
                     Description = "無相關資料",
-                    Habitat = "無相關資料"
+                    Habitat = "無相關資料",
+                    Author = "暫無提供者",
+                    Distribution = "無相關資料",
+                    Provider = "暫無來源"
                 };
                 ViewBag.info = info;
             }

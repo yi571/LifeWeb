@@ -74,13 +74,6 @@
                                 <p class="card-text">@ViewBag.info.Description</p>
 
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
                             <div class="card-header">
                                 習性
                             </div>
@@ -89,9 +82,23 @@
                                 <p class="card-text">@ViewBag.info.Habitat</p>
 
                             </div>
+                            <div class="card-header">
+                                分布
+                            </div>
+                            <div class="card-body">
+
+                                <p class="card-text">@ViewBag.info.Distribution</p>
+
+                            </div>
+                            <div class="card-footer text-muted text-center">
+
+                                提供者：@ViewBag.info.Author <br />來源：@ViewBag.info.Provider<br />
+                                <i class="far fa-closed-captioning"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
 
             <div class="col-sm-6">
