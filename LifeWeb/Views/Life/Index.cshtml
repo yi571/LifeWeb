@@ -31,7 +31,7 @@
                 <div class="col-lg">
                     <form method="get">
                         <div class="input-group mb-3">
-                            <input class="form-control" id="cName" name="cName" type="text" value="@ViewBag.cName" autofocus placeholder="請輸入物種中文名稱..." />
+                            <input class="form-control border-primary" id="cName" name="cName" type="text" value="@ViewBag.cName" autofocus placeholder="請輸入物種中文名稱..." />
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                             </div>
@@ -41,30 +41,26 @@
 
             </div>
             <div class="row">
-                @{ var counter = 1; }
-                @if (ViewBag.jDatas != null) {
-                @foreach (LifeWeb.Models.CJData item in ViewBag.jDatas) {
-                <div class="col-sm-4">
+                <div class="card-columns">
+                    @if (ViewBag.jDatas != null) {
+                        @foreach (LifeWeb.Models.CJData item in ViewBag.jDatas) {
 
-                    <div class="card">
-                        <h5 class="card-header">學名：@item.name</h5>
-                        <div class="card-body">
-                            <p class="card-text">物種編號：<a href="~/Life/NameCode/?nCode=@item.nameCode">@item.nameCode</a></p>
-                            <p class="card-text">中文名稱：@item.cName </p>
-                        </div>
-                    </div>
+
+
+                            <div class="card border-primary">
+                                <h5 class="card-header">學名：@item.name</h5>
+                                <div class="card-body">
+                                    <p class="card-text">物種編號：<a href="~/Life/NameCode/?nCode=@item.nameCode">@item.nameCode</a></p>
+                                    <p class="card-text">中文名稱：@item.cName </p>
+                                </div>
+                            </div>
+
+                        }
+                    }
                 </div>
-            if (counter % 3 == 0) {
-                @:</div><br /><div class="row">
-            counter = 0;
-        }
-        counter++;
-    };
-
-        }
                 <h2>@ViewBag.noData</h2>
+            </div>
         </div>
-    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
